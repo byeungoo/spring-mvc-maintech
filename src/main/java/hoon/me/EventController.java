@@ -1,19 +1,16 @@
 package hoon.me;
 
-import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
-@RequiredArgsConstructor
 public class EventController {
 
-    private final EventService eventService;
-
-    @GetMapping(value = "/events")
+    @RequestMapping(value = "/events", method = RequestMethod.GET)
     public String events(Model model){
-        model.addAttribute("events", eventService.getEvents());
+        System.out.println("이벤트 컨트롤러");
         return "events";
     }
 
